@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E5873825296DC66400D7CA71 /* Celheit_WeatherAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5873824296DC66400D7CA71 /* Celheit_WeatherAppApp.swift */; };
+		E5873825296DC66400D7CA71 /* Celheit_WeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5873824296DC66400D7CA71 /* Celheit_WeatherApp.swift */; };
 		E5873827296DC66400D7CA71 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5873826296DC66400D7CA71 /* ContentView.swift */; };
 		E5873829296DC66500D7CA71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5873828296DC66500D7CA71 /* Assets.xcassets */; };
 		E587382C296DC66500D7CA71 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E587382B296DC66500D7CA71 /* Preview Assets.xcassets */; };
@@ -15,7 +15,7 @@
 
 /* Begin PBXFileReference section */
 		E5873821296DC66400D7CA71 /* Celheit_WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Celheit_WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5873824296DC66400D7CA71 /* Celheit_WeatherAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Celheit_WeatherAppApp.swift; sourceTree = "<group>"; };
+		E5873824296DC66400D7CA71 /* Celheit_WeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Celheit_WeatherApp.swift; sourceTree = "<group>"; };
 		E5873826296DC66400D7CA71 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E5873828296DC66500D7CA71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E587382B296DC66500D7CA71 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 		E5873823296DC66400D7CA71 /* Celheit_WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
-				E5873824296DC66400D7CA71 /* Celheit_WeatherAppApp.swift */,
+				E5873824296DC66400D7CA71 /* Celheit_WeatherApp.swift */,
 				E5873826296DC66400D7CA71 /* ContentView.swift */,
 				E5873828296DC66500D7CA71 /* Assets.xcassets */,
 				E587382A296DC66500D7CA71 /* Preview Content */,
@@ -138,7 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5873827296DC66400D7CA71 /* ContentView.swift in Sources */,
-				E5873825296DC66400D7CA71 /* Celheit_WeatherAppApp.swift in Sources */,
+				E5873825296DC66400D7CA71 /* Celheit_WeatherApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
