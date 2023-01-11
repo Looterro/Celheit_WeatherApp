@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @StateObject private var vm = ViewModel(testMode: true)
     
     var body: some View {
@@ -27,10 +28,12 @@ struct ContentView: View {
                     
                     cloudCover
                     
+                    HourlyPredictionBoxView(weatherViewModel: vm)
+                    
                     Divider()
                     
-                    Link("Weather data by Open-Meteo.com", destination: URL(string: "https://open-meteo.com/")!)
-                        .font(.footnote)
+                    apiProvider
+                    
                 }
             }
             .navigationTitle("Celheit App")
@@ -43,10 +46,17 @@ struct ContentView: View {
     var cloudCover: some View {
         
         VStack {
+            Text("\(vm.currentCloudCover().icon)")
+                .font(.largeTitle)
             Text("Cloud cover")
-            Text("\(vm.currentCloudCover()) %")
+            Text("\(vm.currentCloudCover().percentage) %")
         }
         
+    }
+    
+    var apiProvider: some View {
+        Link("Weather data by Open-Meteo.com", destination: URL(string: "https://open-meteo.com/")!)
+            .font(.footnote)
     }
     
 }

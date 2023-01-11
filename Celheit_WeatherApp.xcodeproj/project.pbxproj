@@ -17,6 +17,7 @@
 		E587383B296DCEA800D7CA71 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587383A296DCEA800D7CA71 /* Extensions.swift */; };
 		E587383D296DE45500D7CA71 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587383C296DE45500D7CA71 /* ViewModel.swift */; };
 		E5F44EA1296EC74D00F5C1EC /* TempBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F44EA0296EC74D00F5C1EC /* TempBoxView.swift */; };
+		E5F44EA6296EE31A00F5C1EC /* HourlyPredictionBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F44EA5296EE31A00F5C1EC /* HourlyPredictionBoxView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		E587383A296DCEA800D7CA71 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E587383C296DE45500D7CA71 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		E5F44EA0296EC74D00F5C1EC /* TempBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempBoxView.swift; sourceTree = "<group>"; };
+		E5F44EA5296EE31A00F5C1EC /* HourlyPredictionBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyPredictionBoxView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 			children = (
 				E5873826296DC66400D7CA71 /* ContentView.swift */,
 				E5F44EA0296EC74D00F5C1EC /* TempBoxView.swift */,
+				E5F44EA5296EE31A00F5C1EC /* HourlyPredictionBoxView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5F44EA6296EE31A00F5C1EC /* HourlyPredictionBoxView.swift in Sources */,
 				E587383B296DCEA800D7CA71 /* Extensions.swift in Sources */,
 				E5873827296DC66400D7CA71 /* ContentView.swift in Sources */,
 				E5F44EA1296EC74D00F5C1EC /* TempBoxView.swift in Sources */,

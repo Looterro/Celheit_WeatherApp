@@ -51,13 +51,14 @@ final class ViewModel: ObservableObject {
     //MARK: - Other functions
     
     func currentTimeindex() -> Int {
+        //get the iso date and hour that matches the current time from the API string
         return Int(weather.hourly.time.firstIndex(where: { $0.prefix(13) == Date().ISO8601Format().prefix(13) })!)
     }
     
-    func currentTemperature(farenheit: Bool = false, apparent: Bool = false) -> Int {
+    func currentTemperature(farenheit: Bool = false, apparent: Bool = false, addHours: Int = 0) -> Int {
         
-        let hourlyTemp = weather.hourly.temperature2M[currentTimeindex()]
-        let apparentTemp = weather.hourly.apparentTemperature[currentTimeindex()]
+        let hourlyTemp = weather.hourly.temperature2M[currentTimeindex() + addHours]
+        let apparentTemp = weather.hourly.apparentTemperature[currentTimeindex() + addHours]
         
         if farenheit == false {
 
@@ -69,8 +70,22 @@ final class ViewModel: ObservableObject {
 
     }
     
-    func currentCloudCover() -> Int {
-        Int(weather.hourly.cloudcover[currentTimeindex()])
+    func currentCloudCover(addHours: Int = 0) -> (percentage: Int, icon: String) {
+        
+        let cloudCover = weather.hourly.cloudcover[currentTimeindex() + addHours]
+        var emoji = ""
+        
+        if cloudCover > 75 {
+            emoji = "☁️"
+        }
+        if cloudCover >= 25 && cloudCover < 75 {
+            emoji = "⛅️"
+        }
+        if cloudCover < 25 {
+            emoji = "☀️"
+        }
+        
+        return (Int(cloudCover), emoji)
     }
     
     
