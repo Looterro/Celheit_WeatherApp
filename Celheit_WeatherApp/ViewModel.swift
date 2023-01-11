@@ -54,5 +54,24 @@ final class ViewModel: ObservableObject {
         return Int(weather.hourly.time.firstIndex(where: { $0.prefix(13) == Date().ISO8601Format().prefix(13) })!)
     }
     
+    func currentTemperature(farenheit: Bool = false, apparent: Bool = false) -> Int {
+        
+        let hourlyTemp = weather.hourly.temperature2M[currentTimeindex()]
+        let apparentTemp = weather.hourly.apparentTemperature[currentTimeindex()]
+        
+        if farenheit == false {
+
+            return Int(apparent ? apparentTemp : hourlyTemp)
+            
+        }
+        
+        return Int(Measurement(value: apparent ? apparentTemp : hourlyTemp, unit: UnitTemperature.celsius).converted(to: .fahrenheit).value)
+
+    }
+    
+    func currentCloudCover() -> Int {
+        Int(weather.hourly.cloudcover[currentTimeindex()])
+    }
+    
     
 }

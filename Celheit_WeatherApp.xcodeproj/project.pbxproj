@@ -16,6 +16,7 @@
 		E5873839296DCE9200D7CA71 /* testWeatherJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = E5873838296DCE9200D7CA71 /* testWeatherJSON.json */; };
 		E587383B296DCEA800D7CA71 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587383A296DCEA800D7CA71 /* Extensions.swift */; };
 		E587383D296DE45500D7CA71 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587383C296DE45500D7CA71 /* ViewModel.swift */; };
+		E5F44EA1296EC74D00F5C1EC /* TempBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F44EA0296EC74D00F5C1EC /* TempBoxView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		E5873838296DCE9200D7CA71 /* testWeatherJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = testWeatherJSON.json; sourceTree = "<group>"; };
 		E587383A296DCEA800D7CA71 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E587383C296DE45500D7CA71 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		E5F44EA0296EC74D00F5C1EC /* TempBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempBoxView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,11 +67,11 @@
 				E587383E296DF29D00D7CA71 /* Views */,
 				E5873832296DC7DD00D7CA71 /* WeatherModel.swift */,
 				E587383C296DE45500D7CA71 /* ViewModel.swift */,
+				E5873836296DCD8700D7CA71 /* ApiManager.swift */,
+				E5F44EA2296ECD2900F5C1EC /* Helpers */,
 				E5873828296DC66500D7CA71 /* Assets.xcassets */,
 				E587382A296DC66500D7CA71 /* Preview Content */,
 				E5873838296DCE9200D7CA71 /* testWeatherJSON.json */,
-				E5873836296DCD8700D7CA71 /* ApiManager.swift */,
-				E587383A296DCEA800D7CA71 /* Extensions.swift */,
 			);
 			path = Celheit_WeatherApp;
 			sourceTree = "<group>";
@@ -86,8 +88,17 @@
 			isa = PBXGroup;
 			children = (
 				E5873826296DC66400D7CA71 /* ContentView.swift */,
+				E5F44EA0296EC74D00F5C1EC /* TempBoxView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E5F44EA2296ECD2900F5C1EC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E587383A296DCEA800D7CA71 /* Extensions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +174,7 @@
 			files = (
 				E587383B296DCEA800D7CA71 /* Extensions.swift in Sources */,
 				E5873827296DC66400D7CA71 /* ContentView.swift in Sources */,
+				E5F44EA1296EC74D00F5C1EC /* TempBoxView.swift in Sources */,
 				E5873833296DC7DD00D7CA71 /* WeatherModel.swift in Sources */,
 				E5873837296DCD8700D7CA71 /* ApiManager.swift in Sources */,
 				E587383D296DE45500D7CA71 /* ViewModel.swift in Sources */,
