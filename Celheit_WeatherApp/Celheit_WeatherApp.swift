@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct Celheit_WeatherApp: App {
+    
     var body: some Scene {
+        
         WindowGroup {
-            ContentView()
+            WeatherView(locationName: "Cityname")
         }
     }
 }

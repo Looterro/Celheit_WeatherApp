@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct TempBoxView: View {
-    var weatherViewModel: ViewModel
+    @StateObject var weatherViewModel: WeatherViewModel
+    @Binding var isRefreshed: Bool
     var farenheit: Bool = false
     
     var body: some View {
 
             ZStack {
-                RoundedRectangle(cornerRadius: 6)
-                    .foregroundColor(.white)
+                
+                LinearGradient(gradient: Gradient(colors: [Color.blue, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .mask(RoundedRectangle(cornerRadius: 6))
                     
                 
                 VStack {
@@ -36,12 +38,16 @@ struct TempBoxView: View {
                         .padding(.bottom)
                     
                 }
+                .foregroundColor(.white)
         
                 RoundedRectangle(cornerRadius: 6)
                     .strokeBorder(lineWidth: 1)
+                    .foregroundColor(.clear)
                     
             }
             .frame(height: 150)
+            .cardify(isRefreshed: isRefreshed)
+
 
         
     }
@@ -49,6 +55,6 @@ struct TempBoxView: View {
 
 //struct TempBoxView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        TempBoxView(weatherViewModel: <#T##ViewModel#>)
+//        TempBoxView(weatherViewModel: <#T##WeatherViewModel#>)
 //    }
 //}

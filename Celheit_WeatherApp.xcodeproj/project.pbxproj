@@ -8,31 +8,43 @@
 
 /* Begin PBXBuildFile section */
 		E5873825296DC66400D7CA71 /* Celheit_WeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5873824296DC66400D7CA71 /* Celheit_WeatherApp.swift */; };
-		E5873827296DC66400D7CA71 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5873826296DC66400D7CA71 /* ContentView.swift */; };
+		E5873827296DC66400D7CA71 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5873826296DC66400D7CA71 /* WeatherView.swift */; };
 		E5873829296DC66500D7CA71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5873828296DC66500D7CA71 /* Assets.xcassets */; };
 		E587382C296DC66500D7CA71 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E587382B296DC66500D7CA71 /* Preview Assets.xcassets */; };
 		E5873833296DC7DD00D7CA71 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5873832296DC7DD00D7CA71 /* WeatherModel.swift */; };
 		E5873837296DCD8700D7CA71 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5873836296DCD8700D7CA71 /* ApiManager.swift */; };
-		E5873839296DCE9200D7CA71 /* testWeatherJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = E5873838296DCE9200D7CA71 /* testWeatherJSON.json */; };
 		E587383B296DCEA800D7CA71 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587383A296DCEA800D7CA71 /* Extensions.swift */; };
-		E587383D296DE45500D7CA71 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587383C296DE45500D7CA71 /* ViewModel.swift */; };
+		E587383D296DE45500D7CA71 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E587383C296DE45500D7CA71 /* WeatherViewModel.swift */; };
 		E5F44EA1296EC74D00F5C1EC /* TempBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F44EA0296EC74D00F5C1EC /* TempBoxView.swift */; };
 		E5F44EA6296EE31A00F5C1EC /* HourlyPredictionBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F44EA5296EE31A00F5C1EC /* HourlyPredictionBoxView.swift */; };
+		E5F44EA9296EF8CD00F5C1EC /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F44EA8296EF8CD00F5C1EC /* LocationModel.swift */; };
+		E5F44EAB296EF90200F5C1EC /* testLocationJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = E5F44EAA296EF90200F5C1EC /* testLocationJSON.json */; };
+		E5F44EAD296F0D4100F5C1EC /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F44EAC296F0D4100F5C1EC /* LocationViewModel.swift */; };
+		E5F44EAF296F129500F5C1EC /* WeatherManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F44EAE296F129500F5C1EC /* WeatherManagerView.swift */; };
+		E5F44ECF296F44EA00F5C1EC /* HalfASheet in Frameworks */ = {isa = PBXBuildFile; productRef = E5F44ECE296F44EA00F5C1EC /* HalfASheet */; };
+		E5F44ED1296F626500F5C1EC /* ChangeLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F44ED0296F626500F5C1EC /* ChangeLocationView.swift */; };
+		E5F44ED42970716D00F5C1EC /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F44ED32970716D00F5C1EC /* Cardify.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E5873821296DC66400D7CA71 /* Celheit_WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Celheit_WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5873824296DC66400D7CA71 /* Celheit_WeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Celheit_WeatherApp.swift; sourceTree = "<group>"; };
-		E5873826296DC66400D7CA71 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E5873826296DC66400D7CA71 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		E5873828296DC66500D7CA71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E587382B296DC66500D7CA71 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E5873832296DC7DD00D7CA71 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		E5873836296DCD8700D7CA71 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
-		E5873838296DCE9200D7CA71 /* testWeatherJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = testWeatherJSON.json; sourceTree = "<group>"; };
 		E587383A296DCEA800D7CA71 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		E587383C296DE45500D7CA71 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		E587383C296DE45500D7CA71 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		E5F44EA0296EC74D00F5C1EC /* TempBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempBoxView.swift; sourceTree = "<group>"; };
 		E5F44EA5296EE31A00F5C1EC /* HourlyPredictionBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyPredictionBoxView.swift; sourceTree = "<group>"; };
+		E5F44EA8296EF8CD00F5C1EC /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		E5F44EAA296EF90200F5C1EC /* testLocationJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = testLocationJSON.json; sourceTree = "<group>"; };
+		E5F44EAC296F0D4100F5C1EC /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		E5F44EAE296F129500F5C1EC /* WeatherManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManagerView.swift; sourceTree = "<group>"; };
+		E5F44ED0296F626500F5C1EC /* ChangeLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLocationView.swift; sourceTree = "<group>"; };
+		E5F44ED229700DB900F5C1EC /* Celheit-WeatherApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Celheit-WeatherApp-Info.plist"; sourceTree = SOURCE_ROOT; };
+		E5F44ED32970716D00F5C1EC /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5F44ECF296F44EA00F5C1EC /* HalfASheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,15 +78,17 @@
 		E5873823296DC66400D7CA71 /* Celheit_WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				E5F44ED229700DB900F5C1EC /* Celheit-WeatherApp-Info.plist */,
 				E5873824296DC66400D7CA71 /* Celheit_WeatherApp.swift */,
 				E587383E296DF29D00D7CA71 /* Views */,
-				E5873832296DC7DD00D7CA71 /* WeatherModel.swift */,
-				E587383C296DE45500D7CA71 /* ViewModel.swift */,
+				E5F44EA7296EF8B600F5C1EC /* Models */,
+				E587383C296DE45500D7CA71 /* WeatherViewModel.swift */,
+				E5F44EAC296F0D4100F5C1EC /* LocationViewModel.swift */,
 				E5873836296DCD8700D7CA71 /* ApiManager.swift */,
-				E5F44EA2296ECD2900F5C1EC /* Helpers */,
 				E5873828296DC66500D7CA71 /* Assets.xcassets */,
 				E587382A296DC66500D7CA71 /* Preview Content */,
-				E5873838296DCE9200D7CA71 /* testWeatherJSON.json */,
+				E5F44EAA296EF90200F5C1EC /* testLocationJSON.json */,
+				E5F44EA2296ECD2900F5C1EC /* Helpers */,
 			);
 			path = Celheit_WeatherApp;
 			sourceTree = "<group>";
@@ -89,9 +104,12 @@
 		E587383E296DF29D00D7CA71 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E5873826296DC66400D7CA71 /* ContentView.swift */,
+				E5873826296DC66400D7CA71 /* WeatherView.swift */,
 				E5F44EA0296EC74D00F5C1EC /* TempBoxView.swift */,
 				E5F44EA5296EE31A00F5C1EC /* HourlyPredictionBoxView.swift */,
+				E5F44EAE296F129500F5C1EC /* WeatherManagerView.swift */,
+				E5F44ED0296F626500F5C1EC /* ChangeLocationView.swift */,
+				E5F44ED32970716D00F5C1EC /* Cardify.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -102,6 +120,15 @@
 				E587383A296DCEA800D7CA71 /* Extensions.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E5F44EA7296EF8B600F5C1EC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E5873832296DC7DD00D7CA71 /* WeatherModel.swift */,
+				E5F44EA8296EF8CD00F5C1EC /* LocationModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +147,9 @@
 			dependencies = (
 			);
 			name = Celheit_WeatherApp;
+			packageProductDependencies = (
+				E5F44ECE296F44EA00F5C1EC /* HalfASheet */,
+			);
 			productName = Celheit_WeatherApp;
 			productReference = E5873821296DC66400D7CA71 /* Celheit_WeatherApp.app */;
 			productType = "com.apple.product-type.application";
@@ -148,6 +178,9 @@
 				Base,
 			);
 			mainGroup = E5873818296DC66400D7CA71;
+			packageReferences = (
+				E5F44ECD296F44EA00F5C1EC /* XCRemoteSwiftPackageReference "HalfASheet" */,
+			);
 			productRefGroup = E5873822296DC66400D7CA71 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -162,7 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5873839296DCE9200D7CA71 /* testWeatherJSON.json in Resources */,
+				E5F44EAB296EF90200F5C1EC /* testLocationJSON.json in Resources */,
 				E587382C296DC66500D7CA71 /* Preview Assets.xcassets in Resources */,
 				E5873829296DC66500D7CA71 /* Assets.xcassets in Resources */,
 			);
@@ -175,13 +208,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5F44EAD296F0D4100F5C1EC /* LocationViewModel.swift in Sources */,
 				E5F44EA6296EE31A00F5C1EC /* HourlyPredictionBoxView.swift in Sources */,
 				E587383B296DCEA800D7CA71 /* Extensions.swift in Sources */,
-				E5873827296DC66400D7CA71 /* ContentView.swift in Sources */,
+				E5873827296DC66400D7CA71 /* WeatherView.swift in Sources */,
 				E5F44EA1296EC74D00F5C1EC /* TempBoxView.swift in Sources */,
+				E5F44ED1296F626500F5C1EC /* ChangeLocationView.swift in Sources */,
+				E5F44ED42970716D00F5C1EC /* Cardify.swift in Sources */,
+				E5F44EA9296EF8CD00F5C1EC /* LocationModel.swift in Sources */,
 				E5873833296DC7DD00D7CA71 /* WeatherModel.swift in Sources */,
 				E5873837296DCD8700D7CA71 /* ApiManager.swift in Sources */,
-				E587383D296DE45500D7CA71 /* ViewModel.swift in Sources */,
+				E587383D296DE45500D7CA71 /* WeatherViewModel.swift in Sources */,
+				E5F44EAF296F129500F5C1EC /* WeatherManagerView.swift in Sources */,
 				E5873825296DC66400D7CA71 /* Celheit_WeatherApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,6 +352,8 @@
 				DEVELOPMENT_TEAM = 4CLUGWWXXZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Celheit-WeatherApp-Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow for getting weather from your area automatically";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -343,6 +383,8 @@
 				DEVELOPMENT_TEAM = 4CLUGWWXXZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Celheit-WeatherApp-Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow for getting weather from your area automatically";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -383,6 +425,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E5F44ECD296F44EA00F5C1EC /* XCRemoteSwiftPackageReference "HalfASheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/franklynw/HalfASheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E5F44ECE296F44EA00F5C1EC /* HalfASheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5F44ECD296F44EA00F5C1EC /* XCRemoteSwiftPackageReference "HalfASheet" */;
+			productName = HalfASheet;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E5873819296DC66400D7CA71 /* Project object */;
 }

@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct HourlyPredictionBoxView: View {
-    var weatherViewModel: ViewModel
+    @StateObject var weatherViewModel: WeatherViewModel
+    @Binding var isRefreshed: Bool
     
     var body: some View {
         ZStack {
             
-            RoundedRectangle(cornerRadius: 6)
-                .foregroundColor(.white)
+            LinearGradient(gradient: Gradient(colors: [Color.blue, Color.white]), startPoint: .top, endPoint: .bottom)
+                .mask(RoundedRectangle(cornerRadius: 6))
+                .opacity(0.5)
 
             ScrollView(.horizontal) {
                 HStack {
@@ -37,13 +39,16 @@ struct HourlyPredictionBoxView: View {
                 }
                 .padding()
             }
+            .foregroundColor(.white)
             
             RoundedRectangle(cornerRadius: 6)
                 .strokeBorder(lineWidth: 1)
+                .foregroundColor(.clear)
             
             
         }
         .frame(height: 150)
+        .cardify(isRefreshed: isRefreshed)
     }
     
 }

@@ -1,5 +1,5 @@
 //
-//  ViewModel.swift
+//  WeatherViewModel.swift
 //  Celheit_WeatherApp
 //
 //  Created by Jakub Łata on 10/01/2023.
@@ -7,25 +7,43 @@
 
 import Foundation
 
-final class ViewModel: ObservableObject {
+final class WeatherViewModel: ObservableObject {
     
-    @Published var weather = Weather.SampleWeather
+    @Published var weather: Weather = Weather.SampleWeather {
+        didSet {
+            storeInUserDefaults()
+        }
+    }
     
-    private let baseUrl = "https://api.open-meteo.com/v1/forecast?latitude=50.06&longitude=19.94&hourly=temperature_2m,apparent_temperature,precipitation,cloudcover&timezone=auto"
     private let apiManager = ApiManager()
     
-    init(testMode: Bool) {
-        testMode ? makeFakeApiRequest() : makeApiRequest()
+    init() {
+        restoreFromUserDefaults()
+    }
+    
+    //MARK: - Storing user defaults
+    
+    private var userDefaultsKey: String {
+        "Weather"
+    }
+    
+    private func storeInUserDefaults() {
+        UserDefaults.standard.set(try? JSONEncoder().encode(weather), forKey: userDefaultsKey)
+    }
+    
+    private func restoreFromUserDefaults() {
+        if let jsonData = UserDefaults.standard.data(forKey: userDefaultsKey), let decodedWeather = try? JSONDecoder().decode(Weather.self, from: jsonData) {
+            weather = decodedWeather
+        }
     }
     
     //MARK: - Functions getting the api
     
-    func makeFakeApiRequest() {
-        self.weather = Weather.SampleWeather
-    }
-    
-    func makeApiRequest() {
-        //insert model of quote and the actual link. Weak self prevents from any memory leaks in api calls, nothing stays in the memory
+    func makeApiRequest(lat: Double, lon: Double) {
+        
+        let baseUrl = "https://api.open-meteo.com/v1/forecast?latitude=\(lat)&longitude=\(lon)&hourly=temperature_2m,apparent_temperature,precipitation,cloudcover&timezone=auto"
+        
+        //insert model of weather and the actual link. Weak self prevents from any memory leaks in api calls, nothing stays in the memory
         apiManager.getData(url: baseUrl, model: Weather.self) { [weak self] result in
             
             //weak self is an optional so this guard makes sure we dont have to handle that elsewhere
@@ -73,6 +91,8 @@ final class ViewModel: ObservableObject {
     func currentCloudCover(addHours: Int = 0) -> (percentage: Int, icon: String) {
         
         let cloudCover = weather.hourly.cloudcover[currentTimeindex() + addHours]
+        //let time = String(weather.hourly.time[currentTimeindex() + addHours]).suffix(5) | to add sunset/sunrise emojis
+        
         var emoji = ""
         
         if cloudCover > 75 {

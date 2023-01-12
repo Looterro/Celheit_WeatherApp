@@ -29,10 +29,9 @@ struct Weather: Codable {
         case hourly
     }
     
-    //MARK: - Sample Data
+    //MARK: - Default Data for syncing the code
     
-    static var SampleWeather: Weather = Bundle.main.decode(file: "testWeatherJSON.json")
-    
+    static var SampleWeather: Weather = Weather(latitude: 0, longitude: 0, generationtimeMS: 0, utcOffsetSeconds: 0, timezone: "-", timezoneAbbreviation: "-", elevation: 0, hourlyUnits: HourlyUnits(time: "-", temperature2M: "-", apparentTemperature: "", precipitation: "", cloudcover: ""), hourly: Hourly(time: [], temperature2M: [], apparentTemperature: [], precipitation: [], cloudcover: []))
     
 }
 
