@@ -17,7 +17,6 @@ struct WeatherView: View {
     @State var locationName: String
     @State var showingTheWeather = false
     @State var isRefreshed: Bool = false
-    
 
     var body: some View {
         NavigationView {
@@ -30,6 +29,7 @@ struct WeatherView: View {
                         if showingTheWeather == true {
                         
                             VStack {
+                            
                                 Text("\(locationName) \(wvm.weather.timezoneAbbreviation)")
                                     .lineLimit(1)
                                     .foregroundColor(.white)
@@ -40,21 +40,23 @@ struct WeatherView: View {
                                     
                                     
                                     TempBoxView(weatherViewModel: wvm, isRefreshed: $isRefreshed, farenheit: true)
-                                    
+                                        //.task(reloadRotationAnimation)
                                     
                                 }
                                 
                                 cloudCover
                                 
                                 HourlyPredictionBoxView(weatherViewModel: wvm, isRefreshed: $isRefreshed)
-                                    .task(reloadRotationAnimation)
+                                    
                                 
                                 Divider()
                                 
                                 apiProvider
                                 
                             }
-                            .listRowBackground(Color.blue.blur(radius: 150))
+                            .listRowBackground( wvm.isPouring() ? Color.gray.blur(radius: 150) : Color.blue.blur(radius: 150) )
+                            .preferredColorScheme(!wvm.isDaytime(checkToday: true) || wvm.isPouring() ? .dark : .light)
+                            .transition(AnyTransition.asymmetric(insertion: .opacity, removal: .opacity))
                         
                         } else {
                             
@@ -63,16 +65,14 @@ struct WeatherView: View {
                         }
                         
                     }
-                    .background(.blue.opacity(0.5))
+                    .transition(AnyTransition.asymmetric(insertion: .opacity, removal: .opacity))
+                    .task(delayTask)
+                    .background( wvm.isPouring() ? Color.gray.opacity(0.3) : Color.blue.opacity(0.4) )
                     .scrollContentBackground(.hidden)
-                    .onAppear {
-                        getCurrentLocation()
-                        showingTheWeather = true
-                    }
                     .refreshable {
                         withAnimation(Animation.easeInOut(duration: 2)) {
                             isRefreshed = true
-                            wvm.makeApiRequest(lat: latitude(), lon: longitude())
+                            wvm.makeApiRequest(lat: wvm.latitude(), lon: wvm.longitude())
                         }
                     }
                     .sheet(isPresented: $showingAllWeathers) {
@@ -81,6 +81,10 @@ struct WeatherView: View {
                         
                     }
 
+                }
+                .onAppear {
+                    getCurrentLocation()
+                    //showingTheWeather = true
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
@@ -113,6 +117,14 @@ struct WeatherView: View {
                 
             }
             
+        }
+        
+    }
+    
+    private func delayTask() async {
+        try? await Task.sleep(nanoseconds: 0_500_000_000)
+        withAnimation() {
+            showingTheWeather = true
         }
     }
     
@@ -231,12 +243,9 @@ struct WeatherView: View {
     //MARK: - Functions
     
     private func reloadRotationAnimation() async {
-        try? await Task.sleep(nanoseconds: 4_500_000_000)
+        try? await Task.sleep(nanoseconds: 5_500_000_000)
         isRefreshed = false
     }
-    
-    private func longitude() -> Double { Double(String(wvm.weather.longitude).prefix(5))! }
-    private func latitude() -> Double { Double(String(wvm.weather.latitude).prefix(5))! }
     
     private func getCurrentLocation() {
             

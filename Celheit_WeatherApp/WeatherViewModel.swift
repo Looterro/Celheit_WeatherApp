@@ -71,9 +71,17 @@ final class WeatherViewModel: ObservableObject {
     func currentTimeindex() -> Int {
         //get the iso date and hour that matches the currently picked timezone from the API string
         
-        let adjustedTime = String(getTimeFormatted(time: Date(), timeZone: NSTimeZone(abbreviation: weather.timezoneAbbreviation)! as TimeZone)).prefix(13)
+        let adjustedTime = String(getTimeFormatted(time: Date(), timeZone: NSTimeZone(name: weather.timezone)! as TimeZone)).prefix(13)
         
         return Int(weather.hourly.time.firstIndex(where: { $0.prefix(13) == adjustedTime })!)
+    }
+    
+    func currentDayIndex(addDays: Int = 0) -> Int {
+        
+        //get the iso format and find the current day index in data
+        let adjustedDayformat = String(getTimeFormatted(time: Date(), timeZone: NSTimeZone(name: weather.timezone)! as TimeZone)).prefix(10)
+        
+        return Int(weather.daily.time.firstIndex(where: {$0.prefix(10) == adjustedDayformat})! + addDays)
     }
     
     func currentTemperature(farenheit: Bool = false, apparent: Bool = false, addHours: Int = 0) -> Int {
@@ -91,25 +99,72 @@ final class WeatherViewModel: ObservableObject {
 
     }
     
-    func currentCloudCover(addHours: Int = 0) -> (percentage: Int, icon: String) {
+    func longitude() -> Double { Double(String(weather.longitude).prefix(5))! }
+    func latitude() -> Double { Double(String(weather.latitude).prefix(5))! }
+    
+    func isDaytime(addHours: Int = 0, checkToday: Bool = false) -> Bool {
+        let sunriseTime = weather.daily.sunrise[currentDayIndex()].suffix(5)
+        let sunsetTime = weather.daily.sunset[currentDayIndex()].suffix(5)
+        let givenTimeOfDay = String(weather.hourly.time[currentTimeindex() + addHours]).suffix(5)
+        let currentTime = String(getTimeFormatted(time: Date(), timeZone: NSTimeZone(name: weather.timezone)! as TimeZone)).prefix(16).suffix(5)
+        
+        //String(weatherViewModel.weather.hourly.time[weatherViewModel.currentTimeindex() + number]).suffix(5)
+        
+        return checkToday ? sunriseTime < currentTime && sunsetTime > currentTime : sunriseTime < givenTimeOfDay && sunsetTime > givenTimeOfDay
+    }
+    
+    func currentCloudCover(addHours: Int = 0, addDays: Int = 0) -> (percentage: Int, icon: String) {
         
         let cloudCover = weather.hourly.cloudcover[currentTimeindex() + addHours]
-        //let time = String(weather.hourly.time[currentTimeindex() + addHours]).suffix(5) | to add sunset/sunrise emojis
         
-        var emoji = ""
+        //let sunriseTime = weather.daily.sunrise[currentDayIndex() + addDays].suffix(5)
+        //let sunsetTime = weather.daily.sunset[currentDayIndex() + addDays].suffix(5)
         
-        if cloudCover > 75 {
-            emoji = "☁️"
+        //let currentTime = String(getTimeFormatted(time: Date(), timeZone: NSTimeZone(name: weather.timezone)! as TimeZone)).prefix(16).suffix(5)
+        
+        //let isDay = sunriseTime < currentTime && sunsetTime > currentTime
+        
+        //print(weather.hourly.rain[currentTimeindex() + addHours ])
+        
+        let rain = weather.hourly.rain[currentTimeindex() + addHours]
+        let shower = rain >= 2.0
+        let smallShower = rain < 2.0 && rain > 0
+        
+        let snow = weather.hourly.snowfall[currentTimeindex() + addHours]
+        let snowfall = snow > 0
+        
+        var cloudStatus = ""
+        
+        if cloudCover >= 75 {
+            
+            if smallShower {
+                cloudStatus = "🌧️"
+            } else if shower {
+                cloudStatus = "⛈️"
+            } else if snowfall {
+                cloudStatus = "❄️"
+            } else {
+                cloudStatus = "☁️"
+            }
+                
         }
         if cloudCover >= 25 && cloudCover < 75 {
-            emoji = "⛅️"
+            
+            if smallShower || shower || snowfall {
+                cloudStatus = isDaytime(addHours: addHours) ?  "🌦️" : "🌧️🌙"
+            } else {
+                cloudStatus = isDaytime(addHours: addHours) ?  "⛅️" : "☁️🌙"
+            }
+            
         }
         if cloudCover < 25 {
-            emoji = "☀️"
+            cloudStatus = isDaytime(addHours: addHours) ?  "☀️" : "🌙"
         }
         
-        return (Int(cloudCover), emoji)
+        return (Int(cloudCover), cloudStatus)
     }
+    
+    func isPouring() -> Bool { return weather.hourly.precipitation[currentTimeindex()] > 0 }
     
     //MARK: - Helper functions
     

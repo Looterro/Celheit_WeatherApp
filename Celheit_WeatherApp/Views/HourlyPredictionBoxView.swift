@@ -14,9 +14,15 @@ struct HourlyPredictionBoxView: View {
     var body: some View {
         ZStack {
             
-            LinearGradient(gradient: Gradient(colors: [Color.blue, Color.white]), startPoint: .top, endPoint: .bottom)
-                .mask(RoundedRectangle(cornerRadius: 6))
-                .opacity(0.5)
+            if weatherViewModel.isPouring() {
+                LinearGradient(gradient: Gradient(colors: weatherViewModel.isDaytime(checkToday: true) ? [Color.gray, Color.white] : [Color.black, Color(uiColor: UIColor.gray)] ), startPoint: .top, endPoint: .bottom)
+                    .mask(RoundedRectangle(cornerRadius: 6))
+                    .opacity(0.3)
+            } else {
+                LinearGradient(gradient: Gradient(colors: weatherViewModel.isDaytime(checkToday: true) ? [Color.blue, Color.white] : [Color.blue, Color(uiColor: UIColor.black)] ), startPoint: .top, endPoint: .bottom)
+                    .mask(RoundedRectangle(cornerRadius: 6))
+                    .opacity(0.3)
+            }
 
             ScrollView(.horizontal) {
                 HStack {

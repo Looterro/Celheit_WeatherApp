@@ -16,8 +16,15 @@ struct TempBoxView: View {
 
             ZStack {
                 
-                LinearGradient(gradient: Gradient(colors: [Color.blue, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                    .mask(RoundedRectangle(cornerRadius: 6))
+                if weatherViewModel.isPouring() {
+                    LinearGradient(gradient: Gradient(colors: weatherViewModel.isDaytime(checkToday: true) ? [Color.gray, Color.white] : [Color.black, Color(uiColor: UIColor.gray)] ), startPoint: .top, endPoint: .bottom)
+                        .mask(RoundedRectangle(cornerRadius: 6))
+                        .opacity(0.5)
+                } else {
+                    LinearGradient(gradient: Gradient(colors: weatherViewModel.isDaytime(checkToday: true) ? [Color.blue, Color.white] : [Color.blue, Color(uiColor: UIColor.black)] ), startPoint: .top, endPoint: .bottom)
+                        .mask(RoundedRectangle(cornerRadius: 6))
+                        .opacity(0.5)
+                }
                     
                 
                 VStack {
@@ -47,10 +54,8 @@ struct TempBoxView: View {
             }
             .frame(height: 150)
             .cardify(isRefreshed: isRefreshed)
-
-
-        
     }
+    
 }
 
 //struct TempBoxView_Previews: PreviewProvider {
