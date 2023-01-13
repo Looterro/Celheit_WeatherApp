@@ -40,8 +40,8 @@ final class WeatherViewModel: ObservableObject {
     //MARK: - Functions getting the api
     
     func makeApiRequest(lat: Double, lon: Double) {
-        
-        let baseUrl = "https://api.open-meteo.com/v1/forecast?latitude=\(lat)&longitude=\(lon)&hourly=temperature_2m,apparent_temperature,precipitation,cloudcover&timezone=auto"
+    
+        let baseUrl = "https://api.open-meteo.com/v1/forecast?latitude=\(lat)&longitude=\(lon)&hourly=temperature_2m,apparent_temperature,precipitation,rain,snowfall,cloudcover&daily=temperature_2m_max,sunrise,sunset,precipitation_hours&timezone=auto"
         
         //insert model of weather and the actual link. Weak self prevents from any memory leaks in api calls, nothing stays in the memory
         apiManager.getData(url: baseUrl, model: Weather.self) { [weak self] result in
@@ -69,8 +69,11 @@ final class WeatherViewModel: ObservableObject {
     //MARK: - Other functions
     
     func currentTimeindex() -> Int {
-        //get the iso date and hour that matches the current time from the API string
-        return Int(weather.hourly.time.firstIndex(where: { $0.prefix(13) == Date().ISO8601Format().prefix(13) })!)
+        //get the iso date and hour that matches the currently picked timezone from the API string
+        
+        let adjustedTime = String(getTimeFormatted(time: Date(), timeZone: NSTimeZone(abbreviation: weather.timezoneAbbreviation)! as TimeZone)).prefix(13)
+        
+        return Int(weather.hourly.time.firstIndex(where: { $0.prefix(13) == adjustedTime })!)
     }
     
     func currentTemperature(farenheit: Bool = false, apparent: Bool = false, addHours: Int = 0) -> Int {
@@ -108,5 +111,12 @@ final class WeatherViewModel: ObservableObject {
         return (Int(cloudCover), emoji)
     }
     
+    //MARK: - Helper functions
+    
+    func getTimeFormatted (time: Date, timeZone: TimeZone) -> String {
+        let timeFormat = ISO8601DateFormatter()
+        timeFormat.timeZone = timeZone
+        return timeFormat.string(from: time)
+    }
     
 }

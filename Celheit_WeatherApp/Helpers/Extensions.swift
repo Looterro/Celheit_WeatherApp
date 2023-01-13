@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 //Get the preview data stored in this file
 extension Bundle {
@@ -30,5 +31,12 @@ extension Bundle {
         }
         
         return loadedData
+    }
+}
+
+// an extension on View Protocol that allows the modifier to be called .cardify
+extension View {
+    func cardify (isRefreshed: Bool) -> some View {
+        self.modifier(Cardify(isRefreshed: isRefreshed))
     }
 }

@@ -32,10 +32,3 @@ struct Cardify: AnimatableModifier {
     }
     
 }
-
-//create an extension on View Protocol that allows the modifier to be called .cardify instead of .modifier(Cardify(isFaceUp: Bool))
-extension View {
-    func cardify (isRefreshed: Bool) -> some View {
-        self.modifier(Cardify(isRefreshed: isRefreshed))
-    }
-}

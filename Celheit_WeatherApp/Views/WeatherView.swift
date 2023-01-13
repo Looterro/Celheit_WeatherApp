@@ -18,6 +18,7 @@ struct WeatherView: View {
     @State var showingTheWeather = false
     @State var isRefreshed: Bool = false
     
+
     var body: some View {
         NavigationView {
             
@@ -29,7 +30,6 @@ struct WeatherView: View {
                         if showingTheWeather == true {
                         
                             VStack {
-                                
                                 Text("\(locationName) \(wvm.weather.timezoneAbbreviation)")
                                     .lineLimit(1)
                                     .foregroundColor(.white)

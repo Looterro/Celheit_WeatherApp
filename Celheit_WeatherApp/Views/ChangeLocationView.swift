@@ -24,7 +24,7 @@ struct ChangeLocationView: View {
                 .padding()
                 .onSubmit {
                     //search the api
-                    locationViewModel.makeApiRequest(locationName: text.lowercased())
+                    locationViewModel.makeApiRequest(locationName: text.lowercased().replacingOccurrences(of: " ", with: "+"))
                 }
             
             apiProvider
