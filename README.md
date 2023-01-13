@@ -6,7 +6,7 @@ The app uses weather API provided by [Open-Meteo.com](https://open-meteo.com/) a
 
 ## Live Demo
 
-https://user-images.githubusercontent.com/73793088/212331720-4ed922f0-0a98-4840-8e52-578f4efcad70.mp4
+https://user-images.githubusercontent.com/73793088/212335539-efa39240-4e51-461b-a9bc-e3398b4081d6.mp4
 
 ## Specification:
 
