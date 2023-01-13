@@ -14,6 +14,8 @@ https://user-images.githubusercontent.com/73793088/212335539-efa39240-4e51-461b-
 
 - User can check current temperature(including apparent temperature) and hourly prediction up to 12 hours forward in both Farenheit and Celsius, as well as weather conditions such as precipitation and cloud cover percentage.
 
-- In order to find weather for given location the app uses by default user location tracker by passing longitude and latitude and calling the weather API. In the search area user can input new address and choose new region from the list of results fetched through location API. After tapping on any option, the coordinates are passed and weather API is called to retrieve new values for given region. 
+- In order to find weather for given location the app uses by default user location tracker(user is asked for permission) by passing longitude and latitude and calling the weather API. In the search area user can input new address and choose new region from the list of results fetched through location API. After tapping on any option, the coordinates are passed and weather API is called to retrieve new values for given region. 
 
 - The data is easily refreshable by pulling the main view down with a finger, which is accompanied with a animation feedback. A user can always switch back to current location by tapping "Use current location" button
+
+- The UI colors change based on the weather conditions in chosen address' precipitation and day/night cycle
