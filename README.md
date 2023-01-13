@@ -2,7 +2,7 @@
 
 Weather app displaying measurements in Celsius and Farenheit, useful for people coming to the US and do not knowing the conversion rate, written using SwiftUI. 
 
-The app uses weather API provided by [Open-Meteo.com]https://open-meteo.com/ and location search API by [nominatim.org]https://nominatim.org/
+The app uses weather API provided by [Open-Meteo.com](https://open-meteo.com/) and location search API by [nominatim.org](https://nominatim.org/)
 
 ## Live Demo
 
